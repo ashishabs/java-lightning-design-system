@@ -11,43 +11,17 @@ public class LightningController {
  
     @RequestMapping("/")
     public String index(Model model) {
-        ArrayList<ViewData> list = new ArrayList<ViewData>();
-        for (int i = 0; i < 5; i++) {
-            ViewData data = new ViewData();
-            StringBuffer buffer = new StringBuffer();
-            buffer.append("メッセージ");
-            buffer.append(i);
-            data.setNo(i + 1);
-            data.setMessage(buffer.toString());
-            list.add(data);
-        }
- 
-        model.addAttribute("msg", list);
+        Account account = new Account();
+        account.setAccountName("Salesforce.com");
+        model.addAttribute("account", account);
         return "index";
     }
 }
  
-class ViewData {
-    private int no;
-    private String message;
- 
-    public int getNo() {
-        return no;
-    }
- 
-    public void setNo(int no) {
-        this.no = no;
-    }
- 
-    public String getMessage() {
-        return message;
-    }
- 
-    public void setMessage(String message) {
-        this.message = message;
-    }
- 
-    public String toString() {
-        return message;
+class Account {
+    public String name;
+
+    public void setAccountName(String accountName) {
+        this.name = accountName;
     }
 }
