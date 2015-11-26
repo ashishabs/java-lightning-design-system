@@ -1,0 +1,1 @@
+web: java $JAVA_POTS -jar target/*.jar --server.port=$PORT
